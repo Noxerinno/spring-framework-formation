@@ -1,18 +1,18 @@
 package com.capgemini;
 
-import com.capgemini.repository.SpeakerRepository;
-import com.capgemini.repository.StubSpeakerRepositoryImpl;
-import com.capgemini.service.SpeakerService;
-import com.capgemini.service.SpeakerServiceImpl;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan({"com.capgemini"})
 public class AppConfig {
 
+    /*
     @Bean(name="speakerService")
+    @Scope(value=BeanDefinition.SCOPE_SINGLETON)
     public SpeakerService getSpeakerService() {
-        SpeakerServiceImpl service = new SpeakerServiceImpl(getSpeakerRepository());
+//        SpeakerServiceImpl service = new SpeakerServiceImpl(getSpeakerRepository());
+        SpeakerServiceImpl service = new SpeakerServiceImpl();
 //        service.setRepository(getSpeakerRepository());
         return service;
     }
@@ -20,5 +20,5 @@ public class AppConfig {
     @Bean(name="speakerRepository")
     public SpeakerRepository getSpeakerRepository() {
         return new StubSpeakerRepositoryImpl();
-    }
+    }*/
 }
