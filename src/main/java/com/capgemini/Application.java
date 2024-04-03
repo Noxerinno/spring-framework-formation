@@ -1,12 +1,15 @@
 package com.capgemini;
 
 import com.capgemini.service.SpeakerService;
-import com.capgemini.service.SpeakerServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Application {
 
-    public static void main (String args[]) {
-        SpeakerService service = new SpeakerServiceImpl();
+    public static void main (String[] args) {
+        ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        SpeakerService service = appContext.getBean("speakerService", SpeakerService.class);
 
         System.out.println(service.findAll().get(0).getFirstName());
     }
